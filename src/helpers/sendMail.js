@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 import "dotenv/config";
 
-export const sendEmail = async (nombre, email, mensaje) => {
+export const sendEmail = async (nombre, apellido, telefono, correo, asunto) => {
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
@@ -14,14 +14,11 @@ export const sendEmail = async (nombre, email, mensaje) => {
       rejectUnauthorized: false,
     },
   });
-  console.log(email)
   let info = await transporter.sendMail({
-    from: `${nombre} ${email}`,
-    replyTo: email,
+    from: `"Formulario de contacto" <${correo}>`,
+    replyTo: correo,
     to: process.env.CORREO,
-    subject: "Datos del formulario",
-    text: `Nombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`,
+    subject: "Datos de contacto",
+    text: `Nombre: ${nombre}\nApellido: ${apellido}\nTeléfono: ${telefono} \nCorreo: ${correo} \nAsunto: ${asunto}`,
   });
-
-  console.log("Mensaje enviado: %s", info.messageId);
 };
