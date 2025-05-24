@@ -18,7 +18,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://landingvetpro.onrender.com", "http://localhost:5173", , "http://localhost:5174"],
+    origin: ["https://landingvetpro.onrender.com", "http://localhost:5173", , "http://localhost:5174", "https://backen-v-pro.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
