@@ -115,7 +115,7 @@ export const login = async (req, res) => {
 
   try {
     const response = await fetch(
-      `${process.env.DBLINK}/empleados/`
+      `${process.env.DBLINK}/empleados`
     );
     if (!response.ok) throw new Error("No se pudieron obtener los empleados");
 
